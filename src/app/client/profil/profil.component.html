@@ -1,0 +1,92 @@
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="../../client/dashbord" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">YouDelivery</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="container-fluid" id="navbarNav">
+      <ul class="navbar-nav nav navbar-nav navbar-right">
+      </ul>
+      <ul  class="nav navbar-nav navbar-right">
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+               aria-expanded="false">Omar camara<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="../../client/profil">Profil</a></li>
+      
+                <li><a routerLink="../../acceuil">Deconnecter</a></li>
+            </ul>
+       </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid backgr">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ">
+                <h1 class="text-center couleur-orange">MON PROFIL</h1>
+            </div>
+        </div>
+    </div><br>
+
+
+<div class="container mt-4 " style="margin-bottom: 2%;">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="row">
+         <div class="col-md-4">
+          <div  class="card card-body block j_details" >
+            <div class="panel panel-default" style="margin-bottom: 2%; background-color:lavender; text-align: center; font-family: 'Courier New', Courier, monospace; color: #000;">
+              <div class="panel-body"><a routerLink="../../client/profil">Mon profil</a></div>
+            </div>
+            <div class="panel panel-default" style="margin-bottom: 2%; background-color: lavender; text-align: center; font-family: 'Courier New', Courier, monospace;">
+              <div ><a routerLink="../../client/demande">Demande de Livraision</a></div>
+            </div>
+            <div class="panel panel-default" style="margin-bottom: 2%; background-color: lavender; text-align: center; font-family: 'Courier New', Courier, monospace;">
+              <div class="panel-body"><a routerLink="../../client/historique">Historique</a></div>
+            </div>
+            <div class="panel panel-default" style="margin-bottom: 2%; background-color:lavender; text-align: center; font-family: 'Courier New', Courier, monospace;" >
+              <div class="panel-body"><a routerLink="../../client/suivi">Suivi</a></div>
+            </div>
+ 
+          </div>
+        </div>
+        <div class="col-md-8 block" style=" margin-bottom: 28px;">
+                   <div  class="card card-body block j_details" style="background-color: lavender;">
+                    <h5 style="text-align: center;">Edite mon profil</h5>
+          <form >
+            
+            <div class="form-group">
+              <label>Nom </label>
+              <input type="text" required name="user_name"  class="form-control form-control-sm">
+            </div>
+            <div class="form-group">
+              <label>Prenom</label>
+              <input type="text" required name="user_name"  class="form-control form-control-sm">
+            </div>
+            <div class="form-group">
+              <label>Adresse</label>
+              <input type="text" required name="user_name"  class="form-control form-control-sm">
+            </div>
+            <div class="form-group">
+              <label>Ville</label>
+              <input type="text" required name="user_name"  class="form-control form-control-sm">
+            </div>
+            <div class="form-group">
+              <label>Numéro de téléphone</label>
+              <input type="tel" required name="user_mobile"  class="form-control form-control-sm">
+            </div>
+            <div class="form-group">
+              <label>Email </label>
+              <input type="email" required name="user_email"  class="form-control form-control-sm">
+            </div>
+            
+           <a class="btn btn-sm btn-danger" style="margin-left: 9%;" role ="button" href="../../client/dashbord">Annuler</a> <button  class="btn btn-sm btn-primary" style="margin-left: 43%;">Modifier</button>
+          </form>
+        </div>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</div>
+  <app-footer></app-footer>
