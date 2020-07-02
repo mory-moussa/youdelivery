@@ -14,7 +14,12 @@ export class AuthService {
   }
   signup(nom: string, prenom:string, email: string,telephone:string,adresse:string){
     console.log(nom, prenom,adresse,email,telephone)
-   return this.hhtp.post('http://192.168.1.14/Youdelivery/public/register',{nom: nom,prenom:prenom,email:email,telephone:telephone,adresse:adresse},
+   return this.hhtp.post('http://localhost/Youdelivery/public/api/register',{nom: nom,prenom:prenom,email:email,telephone:telephone,adresse:adresse},
     {headers: new HttpHeaders({'X-Requested-With':'XMLHttpRequest'})});
+  }
+  signin(email: string, password:string){
+    return this.hhtp.post('http://localhost/Youdelivery/public/api/login',{email:email, password: password},
+    {headers: new HttpHeaders({'X-Requested-With':'XMLHttpRequest'})}
+    );
   }
 }

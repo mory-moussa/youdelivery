@@ -38,7 +38,13 @@ export class SigninComponent implements OnInit {
       return;  
    }  
    else {  
-      if (this.f.email.value == this.model.email && this.f.password.value == this.model.password) {  
+    this.authService.signin(this.f.email.value,this.f.password.value)
+    .subscribe(
+      response => console.log(response),
+      error => console.log(error)
+    );
+     
+     /* if (this.f.email.value == this.model.email && this.f.password.value == this.model.password) {  
       console.log("Login successful");  
       //this.authService.authLogin(this.model);  
       localStorage.setItem('isLoggedIn', "true");  
@@ -52,9 +58,9 @@ export class SigninComponent implements OnInit {
       }  
    else {  
       this.errorMessage = "Please check your userid and password";  
-      }  
-     }  
-  } 
+      } */ 
+     } 
+  }  
   }
 
 
