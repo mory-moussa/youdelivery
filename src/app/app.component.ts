@@ -7,17 +7,19 @@ import *as firebase from 'firebase';
 })
 export class AppComponent {
  constructor(){
-  const firebaseConfig = {
-    apiKey: "AIzaSyD3oWRyXY1_EQojOTua8GTpmVIT0fOCYlE",
-    authDomain: "youdelivery-467c4.firebaseapp.com",
-    databaseURL: "https://youdelivery-467c4.firebaseio.com",
-    projectId: "youdelivery-467c4",
-    storageBucket: "youdelivery-467c4.appspot.com",
-    messagingSenderId: "133353755221",
-    appId: "1:133353755221:web:fbd68e22cf1854397afadc",
-    measurementId: "G-DTF3XWLRC5"
+   // Your web app's Firebase configuration
+   const firebaseConfig = {
+    apiKey: "AIzaSyB_VyFXMWYJzXgDucaEHzjocgx8Kf-WnlU",
+    authDomain: "delivery-185c2.firebaseapp.com",
+    databaseURL: "https://delivery-185c2.firebaseio.com",
+    projectId: "delivery-185c2",
+    storageBucket: "delivery-185c2.appspot.com",
+    messagingSenderId: "480122996233",
+    appId: "1:480122996233:web:3c7e29d7aa671fcff25ad8",
+    measurementId: "G-RD8KJEQ8VG"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
  }
 }

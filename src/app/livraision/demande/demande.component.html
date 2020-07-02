@@ -9,8 +9,8 @@
       </ul>
       <ul  class="nav navbar-nav navbar-right">
         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-               aria-expanded="false">Omar camara<span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
+               aria-expanded="false">{{nomClient}}<span class="caret"></span></a>
+            <ul class="dropdown-menu bg-dark" role="menu">
                 <li><a href="../../client/profil">Profil</a></li>
       
                 <li><a routerLink="../../acceuil">Deconnecter</a></li>
@@ -19,24 +19,27 @@
       </ul>
     </div>
   </nav>
+  <!--fin navbar-->
   <div class="container-fluid backgr">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12 ">
+         <div class="row" style="background-color: cornsilk;">
+             <div class="col-xs-12 col-md-12 col-lg-12  ">
                 <h5 class="text-center couleur-orange">Demande de Livraision</h5>
-            </div>
+             </div>
         </div>
-    </div><br>
+    </div>
+    <br>
+    <hr>
 
 <div class="container mt-4 " style="margin-bottom: 2%;">
   <div class="row justify-content-center">
-    <div class="col-md-10">
+    <div class="col-md-12">
       <div class="row">
          <div class="col-md-4">
           <div  class="card card-body block j_details" >
             
             <div class="panel panel-default" style="margin-bottom: 2%; background-color: lavender; text-align: center; font-family: 'Courier New', Courier, monospace;">
-              <div ><a routerLink="../../client/demande">Demande de Livraision</a></div>
+                <div ><a routerLink="../../client/demande">Demande de Livraision</a></div>
             </div>
             <div class="panel panel-default" style="margin-bottom: 2%; background-color: lavender; text-align: center; font-family: 'Courier New', Courier, monospace;">
               <div class="panel-body"><a routerLink="../../client/historique">Historique</a></div>
@@ -44,223 +47,215 @@
             <div class="panel panel-default" style="margin-bottom: 2%; background-color:lavender; text-align: center; font-family: 'Courier New', Courier, monospace;" >
               <div class="panel-body"><a routerLink="../../client/suivi">Suivi</a></div>
             </div>
- 
           </div>
         </div>
         
-        <div class="col-md-8 block" style=" margin-bottom: 28px; ">
-          <div  class="card card-body block j_details" style="">
-                     <h6 style="text-align: center;">Expediteur</h6>
-                    
-          <form >
+        <div class="col-md-8 block col-lg-8" style=" margin-bottom: 28px; "> 
+          
+          <div  class="card card-body block j_details" >
+                <h6 style="text-align: center;">Expediteur</h6>      
+          
+              <div class="row">
+                 <div class="form-group col-md-6">
+                   <div class="row">
+                      <div class="form-group col-md-2">
+                        <label>Nom</label>
+                      </div>
+                      <div class="form-group col-md-9">
+                        <input type="text" required name="user_name"  class="form-control form-control-sm" value="{{nomClient}}" readonly>
+                      </div>
+                   </div>
+                 </div>
+                 <div class="form-group col-md-6">
+                   <div class="row">
+                      <div class="form-group col-md-3">
+                        <label>Prénom</label>
+                      </div>
+                      <div class="form-group col-md-9">
+                         <input type="text" required name="user_name" value="{{prenomClient}}" class="form-control form-control-sm" readonly>
+                      </div>
+                   </div>
+                 </div>
+              </div>
+              <div class="row">
+                 <div class="form-group col-md-6">
+                   <div class="row">
+                     <div class="form-group col-md-3">
+                       <label>Adresse</label>
+                     </div>
+                     <div class="form-group col-md-9">
+                        <input type="text" required name="user_name" value="{{adresseClient}}" class="form-control form-control-sm" readonly>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="form-group col-md-6">
+                   <div class="row">
+                     <div class="form-group col-md-3">
+                       <label>Numero</label>
+                     </div>
+                     <div class="form-group col-md-9">
+                       <input type="text" required name="user_name"  value="{{numeroClient}}" class="form-control form-control-sm" value="+22177275335" readonly>
+              
+                     </div>
+                   </div>
+                 </div>
+               </div> 
+          </div>
+          <!--Fin expediteur-->
+          
+          <!--Debut destinataire-->
+            <form class="form-signin" [formGroup]="commandeForm" (ngSubmit)="onConfirmer()">
+          <div  class="card card-body block j_details" style="margin-top: 2%;">
+                   <h6 style="text-align: center;">Destinataire</h6>
             <div class="row">
               <div class="form-group col-md-6">
-                <div class="row">
-                  <div class="form-group col-md-2">
-                    <label>Nom</label>
-                  </div>
-                  <div class="form-group col-md-9">
-                    <input type="text" required name="user_name"  class="form-control form-control-sm">
-                  </div>
+               <div class="row">
+                <div class="form-group col-md-3">
+                   <label>Nom</label>
                 </div>
-              </div>
-              <div class="form-group col-md-6">
-                <div class="row">
-                  <div class="form-group col-md-3">
-                    <label>Prénom</label>
-                  </div>
-                  <div class="form-group col-md-9">
-                    <input type="text" required name="user_name"  class="form-control form-control-sm">
-                  </div>
+                <div class="form-group col-md-9">
+                   <input type="text"  formControlName="nom" class="form-control form-control-sm">
                 </div>
-              </div>
+               </div>
+             </div>
+             <div class="form-group col-md-6">
+               <div class="row">
+                <div class="form-group col-md-3">
+                   <label>Prénom</label>
+                </div>
+                <div class="form-group col-md-9">
+                   <input type="text" formControlName="prenom"   class="form-control form-control-sm">
+                </div>
+               </div>
+             </div>
+           </div>
+          <div class="row">
+           <div class="form-group col-md-6">
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label>Ville</label>
+                </div>
+               <div class="form-group col-md-9">
+                <select  formControlName="ville"  class="form-control form-control-sm">
+                   <option value=""> la ville du destinataire</option>
+                   <option value="dakar">Dakar</option>
+                   <option value="thies">Thies</option>
+                   <option value="diourbel">Diourbel</option>
+                </select>
+               </div>
+             </div>
+           </div>
+           <div class="form-group col-md-6">
+             <div class="row">
+               <div class="form-group col-md-3">
+                 <label>Numéro</label>
+               </div>
+               <div class="form-group col-md-9">
+                 <input type="text" formControlName="numero"   class="form-control form-control-sm">
+               </div>
+             </div>
+           </div>
+          </div> 
+           <div class="row">
+            <div class="form-group col-md-6">
+              <div class="row">
+               <div class="form-group col-md-3">
+                 <label>Adresse</label>
+               </div>
+               <div class="form-group col-md-9">
+                 <input type="text" formControlName="adresse"   class="form-control form-control-sm">
+                </div>
+             </div>
             </div>
-            <div class="row">
-              <div class="form-group col-md-6">
-                <div class="row">
-                  <div class="form-group col-md-3">
-                    <label>Adresse</label>
-                  </div>
-                  <div class="form-group col-md-9">
-                    <input type="text" required name="user_name"  class="form-control form-control-sm">
-                  </div>
-                </div>
-              </div>
-              <div class="form-group col-md-6">
-                <div class="row">
-                  <div class="form-group col-md-3">
-                    <label>Numero</label>
-                  </div>
-                  <div class="form-group col-md-9">
-                    <input type="text" required name="user_name"  class="form-control form-control-sm">
-                  </div>
-                </div>
-              </div>
-            </div> 
-          </form>
+          </div> 
         </div>
-
-       <div  class="card card-body block j_details" style="margin-top: 2%;">
-          <h6 style="text-align: center;">Destinataire</h6>
-         
-      <form >
-       <div class="row">
-        <div class="form-group col-md-6">
+         <!--Fin destinataire-->
+          <!--Debut details-->
+        <div  class="card card-body block j_details" style="margin-top: 2%;">
+               <h6 style="text-align: center;">Détails</h6> 
+        <div class="row">
+        <div class="form-group col-md-8">
           <div class="row">
-            <div class="form-group col-md-3">
-              <label>Nom</label>
-            </div>
-            <div class="form-group col-md-9">
-              <input type="text" required name="user_name"  class="form-control form-control-sm">
-            </div>
+             <div class="form-group col-md-4">
+               <label>Livraision </label>
+             </div>
+             <div class="form-group col-md-4">
+               <input id="normal" type="radio" value="normal" formControlName="type" checked="checked"  >&nbsp;&nbsp;&nbsp;&nbsp;
+               <label for="normal">Normal</label>
+             </div>
+             <div class="form-group col-md-4">
+               <input id="express" type="radio"  value="express" formControlName="type"  >&nbsp;&nbsp;&nbsp;&nbsp;
+               <label for="express">Express </label>
+             </div>
+           </div>
+         </div>
+         <div class="form-group col-md-4">
+           <select name="type" formControlName="colis" class="form-control form-control-sm">
+              <option value=""> Type de colis</option>
+              <option value="nourriture">Nourriture</option>
+              <option value="Doucument admistratif">Document admistratif</option>
+              <option value="Marchandise">Marchandise</option>
+           </select>
+         </div>
+       </div>
+      <div class="row">
+       <div class="form-group col-md-6">
+         <div class="row">
+           <div class="form-group col-md-3">
+             <label>Montant</label>
+           </div>
+           <div class="form-group col-md-9">
+             <input type="text" formControlName="montant"   class="form-control form-control-sm" readonly>
+           </div>
+         </div>
+       </div>
+      <div class="form-group col-md-6">
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label>Moyen de payemant</label>
           </div>
-          </div>
-         <div class="form-group col-md-6">
-          <div class="row">
-            <div class="form-group col-md-3">
-              <label>Prénom</label>
-            </div>
-            <div class="form-group col-md-9">
-              <input type="text" required name="user_name"  class="form-control form-control-sm">
-            </div>
+         <div class="form-group col-md-8">
+           <select name="paymant" formControlName="paymant" class="form-control form-control-sm">
+             <option value="orange moyen"> Orange Money</option>
+             <option value="espece">Espece</option>
+             <option value="wari">Wari</option>
+           </select>
           </div>
          </div>
-      </div>
-      <div class="row">
-         <div class="form-group col-md-6">
+       </div>
+     </div> 
       <div class="row">
         <div class="form-group col-md-3">
-          <label>Ville</label>
+           <label>Commentaire</label>
         </div>
         <div class="form-group col-md-9">
-          <select name="ville" required ngModel class="form-control form-control-sm">
-            <option value=""> la ville du destinataire</option>
-            <option value="casa">Dakar</option>
-            <option value="paris">Thies</option>
-            <option value="dakar">Diourbel</option>
-          </select>
+           <textarea formControlName="commentaire"  class="form-control form-control-sm"></textarea>
         </div>
       </div>
-      </div>
-        <div class="form-group col-md-6">
-          <div class="row">
-            <div class="form-group col-md-3">
-              <label>Numéro</label>
-            </div>
-            <div class="form-group col-md-9">
-              <input type="text" required name="user_name"  class="form-control form-control-sm">
-            </div>
-          </div>
+      <div class="row">
+        <div class="form-group col-md-3">
+           <label>Condition générale de l'utilisation</label>
         </div>
-       </div> 
-       <div class="row">
-        <div class="form-group col-md-6">
-          <div class="row">
-            <div class="form-group col-md-3">
-              <label>Adresse</label>
-            </div>
-            <div class="form-group col-md-9">
-              <input type="text" required name="user_name"  class="form-control form-control-sm">
-            </div>
-          </div>
+        <div class="form-group col-md-9">
+           <textarea id="datascontrat"   style="border:1px solid #DCDCDC; color: #0c0c0c; font-size: 12px; width: 410px;height: 172px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px;">Car Rapide Prestige  effectuera la livraison à l’adresse que vous aurez indiquée au Sénégal dans la limite des destinations possibles. Les livraisons sont effectuées du lundi au Samedi de 7H30 à 21H30. Pour de plus d’informations sur les délais de livraisons, veuillez consulter les particularités des différents types de livraisons sur le site internet www.carrapideprestige.com. Veuillez noter que les délais de livraison sont donnés à titre indicatif et ne doivent donc pas être considérés comme des délais fermes. Le simple dépassement du délai de livraison ne vous donne droit à aucun dommage et intérêt. 
+              Car Rapide Prestige se réserve le droit d’effectuer une livraison dans des limites raisonnables, afin que vous obteniez le plus rapidement possible les produits commandés. Aucun frais supplémentaire ne vous sera demandé si nous devons effectuer la livraison en plusieurs fois. Cependant, si vous avez demandé à ce que Car Rapide Prestige effectue les livraisons en plusieurs fois, Car Rapide Prestige se réserve le droit de vous facturer des frais de livraison supplémentaires.
+              Si vous choisissez de payer en ligne vous garantissez que vous êtes le titulaire légal du compte en ligne et des fonds qui y sont liés. Vous garantissez également que vous avez les fonds nécessaires pour effectuer le paiement.
+            </textarea>
+        </div>
+      </div>
+      <div id="laCasecheck" class="checkbox" >
+        <input id="chkTest" type="checkbox"  formControlName="condition"  >
+        <label for="chkTest" id="lechkTest" >
+          J'accepte.</label>
+          <div class="space"></div>
+        </div>
+      </div>
+     
+      <button class="btn btn-success" type="submit" [disabled]="commandeForm.invalid">Confirmer</button>
+       </form>
      </div>
-       
-      </div> 
-      </form>
-   </div>
-        
-   <div  class="card card-body block j_details" style="margin-top: 2%;">
-    <h6 style="text-align: center;">Détails</h6>
-   
-<form >
- <div class="row">
-  <div class="form-group col-md-8">
-    <div class="row">
-      <div class="form-group col-md-4">
-        <label>Livraision </label>
-      </div>
-      <div class="form-group col-md-4">
-        <input id="idnormal" type="radio" name="codelivraison" checked="checked" value="normal" onclick="lenormal()">&nbsp;&nbsp;&nbsp;&nbsp;
-        <label>Normal</label>
-      </div>
-      <div class="form-group col-md-4">
-        <input id="idsecret" type="radio" name="codelivraison" value="Secret" onclick="lesecret()">&nbsp;&nbsp;&nbsp;&nbsp;
-        <label>Express </label>
-      </div>
-    </div>
-   </div>
-   <div class="form-group col-md-4">
-    
-        <select name="ville" required ngModel class="form-control form-control-sm">
-          <option value=""> Type de colis</option>
-          <option value="casa">Nourriture</option>
-          <option value="paris">Document admistratif</option>
-          <option value="dakar">Marchandise</option>
-        </select>
-
-   </div>
-</div>
-<div class="row">
-   <div class="form-group col-md-6">
-    <div class="row">
-      <div class="form-group col-md-3">
-        <label>Montant</label>
-      </div>
-      <div class="form-group col-md-9">
-        <input type="text" required name="user_name"  class="form-control form-control-sm">
-      </div>
-    </div>
-</div>
-  <div class="form-group col-md-6">
-    <div class="row">
-      <div class="form-group col-md-4">
-        <label>Moyen de payemant</label>
-      </div>
-      <div class="form-group col-md-8">
-        <select name="ville" required ngModel class="form-control form-control-sm">
-          <option value=""> Orange Money</option>
-          <option value="casa">Espece</option>
-          <option value="paris">Wari</option>
-          
-        </select>
-      </div>
-    </div>
-  </div>
- </div> 
- 
-  <div class="row">
-    <div class="form-group col-md-3">
-      <label>Commentaire</label>
-    </div>
-    <div class="form-group col-md-9">
-      <textarea required name="user_name"  class="form-control form-control-sm"></textarea>
-    </div>
-   </div>
-   <div class="row">
-    <div class="form-group col-md-3">
-      <label>Condition générale de l'utilisation</label>
-    </div>
-    <div class="form-group col-md-9">
-      <textarea id="datascontrat"   style="border:1px solid #DCDCDC; color: #0c0c0c; font-size: 12px; width: 410px;height: 172px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px;">Car Rapide Prestige  effectuera la livraison à l’adresse que vous aurez indiquée au Sénégal dans la limite des destinations possibles. Les livraisons sont effectuées du lundi au Samedi de 7H30 à 21H30. Pour de plus d’informations sur les délais de livraisons, veuillez consulter les particularités des différents types de livraisons sur le site internet www.carrapideprestige.com. Veuillez noter que les délais de livraison sont donnés à titre indicatif et ne doivent donc pas être considérés comme des délais fermes. Le simple dépassement du délai de livraison ne vous donne droit à aucun dommage et intérêt. 
-        Car Rapide Prestige se réserve le droit d’effectuer une livraison dans des limites raisonnables, afin que vous obteniez le plus rapidement possible les produits commandés. Aucun frais supplémentaire ne vous sera demandé si nous devons effectuer la livraison en plusieurs fois. Cependant, si vous avez demandé à ce que Car Rapide Prestige effectue les livraisons en plusieurs fois, Car Rapide Prestige se réserve le droit de vous facturer des frais de livraison supplémentaires.
-        Si vous choisissez de payer en ligne vous garantissez que vous êtes le titulaire légal du compte en ligne et des fonds qui y sont liés. Vous garantissez également que vous avez les fonds nécessaires pour effectuer le paiement. </textarea>
-    </div>
-   </div>
-   
-   <div id="laCasecheck" class="checkbox" >
-    <input id="chkTest" type="checkbox"  value="checkbox" >
-    <label for="chkTest" id="lechkTest" >
-        J'accepte.</label>
-    <div class="space">
-
-    </div>
-</div>
-</form>
-</div>
-   </div>
-       
-      </div>
+     </div>
     </div>
   </div>
 </div>
-  <app-footer></app-footer>
+<app-footer></app-footer>

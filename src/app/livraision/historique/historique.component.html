@@ -1,1 +1,67 @@
-<p>historique works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="../../client/dashbord" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">YouDelivery</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="container-fluid" id="navbarNav">
+      <ul class="navbar-nav nav navbar-nav navbar-right">
+      </ul>
+      <ul  class="nav navbar-nav navbar-right">
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+               aria-expanded="false">{{nomClient}}<span class="caret"></span></a>
+            <ul class="dropdown-menu bg-dark" role="menu">
+                <li><a href="../../client/profil">Profil</a></li>
+      
+                <li><a routerLink="../../acceuil">Deconnecter</a></li>
+            </ul>
+       </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-4 " style="margin-bottom: 2%;">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <div class="row">
+           <div class="col-md-4">
+            <div  class="card card-body block j_details" >
+              
+              <div class="panel panel-default" style="margin-bottom: 2%; background-color: lavender; text-align: center; font-family: 'Courier New', Courier, monospace;">
+                  <div ><a routerLink="../../client/demande">Demande de Livraision</a></div>
+              </div>
+              <div class="panel panel-default" style="margin-bottom: 2%; background-color: lavender; text-align: center; font-family: 'Courier New', Courier, monospace;">
+                <div class="panel-body"><a routerLink="../../client/historique">Historique</a></div>
+              </div>
+              <div class="panel panel-default" style="margin-bottom: 2%; background-color:lavender; text-align: center; font-family: 'Courier New', Courier, monospace;" >
+                <div class="panel-body"><a routerLink="../../client/suivi">Suivi</a></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-8 block col-lg-8" style=" margin-bottom: 28px; "> 
+            
+            <div  class="card card-body block j_details" >
+                  <h6 style="text-align: center;">Historique</h6>      
+            
+                  <table class="table">
+
+                    <thead>
+                      <tr>
+                          <th>Date de livraision</th>
+                          <th>Montant </th>
+                          <th>Etat</th>
+                          <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr  >
+                        <td>14/02/2020</td>
+                        <td> 15000</td>
+                        <td>livré</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              
+            </div>
+          </div>
+        </div>

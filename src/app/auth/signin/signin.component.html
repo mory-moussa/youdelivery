@@ -35,11 +35,11 @@
     </nav><!-- #nav-menu-container -->
   </div>
 </header><!-- End Header -->
-<section id="hero">
+<section id="hero" style="padding-top: 50%;">
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
         <div class="container">
             <div class="row">
-              <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+              <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
                 
                   <div class="card-body" >
                     <h2 class="card-title text-center">Connexion</h2>
@@ -62,6 +62,7 @@
                               type="submit"
                               [disabled]="signinForm.invalid">Connexion</button>
                     </form>
+                          <div style="color: red;">{{errorMessage}}</div> 
                     <div class="row" style="margin-top: 2%;">
 
                       <div class="col-md-8 forgot-pass-content">

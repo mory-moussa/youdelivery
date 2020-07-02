@@ -39,11 +39,11 @@ const appRoutes: Routes = [
   { path: 'footer', component: FooterComponent },
   { path: 'auth/signup', component: SignupComponent},
   { path: 'auth/signin', component: SigninComponent},
-  { path: 'client/dashbord', component: DashbordComponent},
-  { path: 'client/profil', component: ProfilComponent},
-  { path: 'client/demande', component: DemandeComponent},
-  { path: 'client/suivi', component: SuiviComponent},
-  { path: 'client/historique', component: HistoriqueComponent},
+  { path: 'client/dashbord',canActivate:[AuthGuardService],component: DashbordComponent},
+  { path: 'client/profil',canActivate:[AuthGuardService], component: ProfilComponent},
+  { path: 'client/demande',canActivate:[AuthGuardService], component: DemandeComponent},
+  { path: 'client/suivi',canActivate:[AuthGuardService], component: SuiviComponent},
+  { path: 'client/historique',canActivate:[AuthGuardService], component: HistoriqueComponent},
   { path: '**', redirectTo: 'acceuil', pathMatch: 'full'}
 ];
 @NgModule({
@@ -75,6 +75,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [AuthGuardService,AuthService],

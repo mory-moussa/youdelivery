@@ -1,40 +1,20 @@
 import { Injectable } from '@angular/core';
-import *as firebase from 'firebase';
+import { Login } from '../models/login';
+import { Observable } from 'rxjs';
+import {  HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
-  createNewUser(email: string, password: string) {
-    return new Promise(
-      (resolve, reject) => {
-        firebase.auth().createUserWithEmailAndPassword(email, password).then(
-          () => {
-            resolve();
-          },
-          (error) => {
-            reject(error);
-          }
-        );
-      }
-    );
-}
-signInUser(email: string, password: string) {
-  return new Promise(
-    (resolve, reject) => {
-      firebase.auth().signInWithEmailAndPassword(email, password).then(
-        () => {
-          resolve();
-        },
-        (error) => {
-          reject(error);
-        }
-      );
-    }
-  );
-}
-signOutUser() {
-  firebase.auth().signOut();
-}
+  constructor(private hhtp: HttpClient) { }
+  logout() :void {
+    localStorage.setItem('isLoggedIn','false');
+    localStorage.removeItem('token');
+  }
+  signup(nom: string, prenom:string, email: string,telephone:string,adresse:string){
+    console.log(nom, prenom,adresse,email,telephone)
+   return this.hhtp.post('http://192.168.1.14/Youdelivery/public/register',{nom: nom,prenom:prenom,email:email,telephone:telephone,adresse:adresse},
+    {headers: new HttpHeaders({'X-Requested-With':'XMLHttpRequest'})});
+  }
 }

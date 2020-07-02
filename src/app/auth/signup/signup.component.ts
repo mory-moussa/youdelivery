@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -9,36 +10,43 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  signupForm: FormGroup;
+ 
+  createForm: FormGroup;
   errorMessage: string;
-
-  constructor(private formBuilder: FormBuilder,
-              private authService: AuthService,
-              private router: Router) { }
-
+  alert: boolean=false;
+ 
+  constructor(
+               private formBuilder:FormBuilder,
+               private router: Router,private authService: AuthService) { }
+ 
   ngOnInit() {
     this.initForm();
   }
-
-  initForm() {
-    this.signupForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]]
-    });
-  }
-
-  onSubmit() {
-    const email = this.signupForm.get('email').value;
-    const password = this.signupForm.get('password').value;
-    
-    this.authService.createNewUser(email, password).then(
-      () => {
-        this.router.navigate(['/signin']);
-      },
-      (error) => {
-        this.errorMessage = error;
-      }
+ 
+  initForm(){
+    this.createForm= this.formBuilder.group({
+      nom:['',[Validators.required]],
+      prenom:['',[Validators.required]],
+      email:['',[Validators.required, Validators.email]],
+      
+      telephone:['',[Validators.required,Validators.pattern(/[0-9]{9}/)]],
+      adresse:['',Validators.required]
+    }
     );
   }
-
+ 
+  onSubmit(){
+    const nom = this.createForm.get('nom').value;
+    const prenom = this.createForm.get('prenom').value;
+    const email = this.createForm.get('email').value;
+    const telephone = this.createForm.get('telephone').value;
+    const adresse = this.createForm.get('adresse').value;
+    this.alert= true;
+    this.authService.signup(nom,prenom,email,telephone,adresse)
+    .subscribe(
+      response => console.log(response),
+      error => console.log(error)
+    );
+   
+  }
 }
